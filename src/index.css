@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: linear-gradient(180deg, #c3e2f7 0%, #d6e9f7 40%, #edf2f6 100%);
+    background-attachment: fixed;
+    color: #1c2534;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Lagos Life Pastel Sky Blue Background */
+.geometric-grid-bg {
+  background: linear-gradient(180deg, #c3e2f7 0%, #d6e9f7 45%, #edf3f8 100%);
+  background-attachment: fixed;
+}
+
+/* Subtle Sky Vignette Overlay */
+.matte-vignette {
+  background: radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.45) 0%, transparent 70%);
+}
+
+/* Clean White Lagos Life Card */
+.glassmorphism-card {
+  background: #ffffff;
+  border: 1px solid #e2ecf4;
+  border-radius: 1.75rem;
+  box-shadow: 
+    0 12px 36px rgba(28, 37, 52, 0.08),
+    0 2px 8px rgba(28, 37, 52, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glassmorphism-card:hover {
+  border-color: #cbdcf0;
+  box-shadow: 
+    0 16px 44px rgba(28, 37, 52, 0.11),
+    0 4px 12px rgba(28, 37, 52, 0.05);
+}
+
+/* Gentle Card Shake Animation for Wrong Password */
+@keyframes gentle-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  15%, 45%, 75% {
+    transform: translateX(-7px);
+  }
+  30%, 60%, 90% {
+    transform: translateX(7px);
+  }
+}
+
+.animate-gentle-shake {
+  animation: gentle-shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Virtual Vault Opening Animation Styles */
+@keyframes vault-wheel-unlock {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  30% {
+    transform: rotate(180deg) scale(1.08);
+  }
+  60% {
+    transform: rotate(360deg) scale(1.05);
+  }
+  85% {
+    transform: rotate(540deg) scale(0.95);
+  }
+  100% {
+    transform: rotate(720deg) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes vault-door-left {
+  0%, 40% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-105%);
+    opacity: 0.15;
+  }
+}
+
+@keyframes vault-door-right {
+  0%, 40% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(105%);
+    opacity: 0.15;
+  }
+}
+
+@keyframes gold-light-burst {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes ray-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-vault-wheel {
+  animation: vault-wheel-unlock 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-vault-door-l {
+  animation: vault-door-left 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-vault-door-r {
+  animation: vault-door-right 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-gold-burst {
+  animation: gold-light-burst 1.5s ease-out infinite;
+}
+
+.animate-rays {
+  animation: ray-rotate 20s linear infinite;
+}
+
+/* Crown Gold & Emerald Glow Animation */
+@keyframes crown-breathe {
+  0% {
+    filter: drop-shadow(0 4px 10px rgba(239, 178, 36, 0.45));
+  }
+  100% {
+    filter: drop-shadow(0 8px 20px rgba(239, 178, 36, 0.7));
+  }
+}
+
+.crown-gold-glow {
+  animation: crown-breathe 2.6s ease-in-out infinite alternate;
+}
+
+/* Primary Lagos Life Emerald Green Button */
+@keyframes button-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(68, 159, 115, 0.35);
+  }
+  50% {
+    box-shadow: 0 10px 28px rgba(68, 159, 115, 0.55);
+  }
+}
+
+.login-btn-interactive {
+  background-color: #449f73;
+  color: #ffffff;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 6px 20px rgba(68, 159, 115, 0.35);
+}
+
+.login-btn-interactive:hover {
+  background-color: #3d8f68;
+  transform: scale(1.015);
+  animation: button-glow-pulse 1.8s infinite ease-in-out;
+}
+.login-btn-interactive:active {
+  background-color: #36825e;
+  transform: scale(0.985);
+}
+
+/* Live Claims Feed Toast Animations: Slide in from bottom-left & Fade/Slide out */
+@keyframes toast-slide-in {
+  0% {
+    transform: translateX(-24px) scale(0.94);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-16px) scale(0.92);
+  }
+}
+
+.animate-toast-in {
+  animation: toast-slide-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-toast-out {
+  animation: toast-fade-out 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

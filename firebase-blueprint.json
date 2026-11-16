@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "UserAccount": {
+      "title": "UserAccount",
+      "description": "Lagos Life citizen account record with credentials, balance, and claim status",
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-\\.]+$",
+          "description": "Unique username identifier for the citizen"
+        },
+        "password": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Account password"
+        },
+        "joinedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp when the citizen joined Lagos Life"
+        },
+        "balance": {
+          "type": "number",
+          "description": "Current citizen wallet balance in Naira"
+        },
+        "hasClaimed": {
+          "type": "boolean",
+          "description": "Whether the citizen has claimed the 1 Trillion Naira grant"
+        }
+      },
+      "required": ["username", "password", "joinedAt", "balance", "hasClaimed"]
+    }
+  },
+  "firestore": {
+    "/users/{username}": {
+      "schema": {
+        "$ref": "#/entities/UserAccount"
+      },
+      "description": "Collection of all registered citizens and administrators in Lagos Life"
+    }
+  }
+}

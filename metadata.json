@@ -1,0 +1,6 @@
+{
+  "name": "Lagos Life",
+  "description": "A modern mobile-first web app capturing the rhythm, hotspots, and vibrant lifestyle of Lagos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
